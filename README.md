@@ -14,7 +14,7 @@
 
 - 문제 제출 순서
   
-    **예찬 → 광희 → 소현 → 영원 → 동준**
+    **예찬 → 소현 → 영원 → 동준**
     
 - 불참하거나 지각 시 벌금 1000원.
 
@@ -37,11 +37,11 @@
 - 각자 이름(이니셜 ex. ksh)을 `branch`로 생성하여 파일을 commit 및 PR한다.
 - 커밋 규칙
     - 파일 추가
-        - `add : 220707 boj_1234 Solved`
-        - `add : 220707 boj_1234 Failed`
+        - `add : 220707 boj_1234_연속합 Solved`
+        - `add : 220707 boj_1234_연속합 Failed`
         - `add : 220707 programmers_N개의 최소공배수 Solved`
     - 파일 수정
-        - `fix : 220707 boj_1234 Solved`
+        - `fix : 220707 boj_1234_연속합 Solved`
     - 플랫폼 이름
         - boj
         - programmers
