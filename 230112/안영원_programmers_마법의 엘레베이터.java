@@ -18,24 +18,22 @@ class Solution {
             idx += 1;
         }
         
-        
         // 5를 올리는 경우
-		int[] temp = new int[9];
-		for (int i = 0; i < 9; i++) temp[i] = jare[i];
-		int a = fiveUp(temp);
+	int[] temp = new int[9];
+	for (int i = 0; i < 9; i++) temp[i] = jare[i];
+	int a = fiveUp(temp);
 
-
-		// 5를 내리는 경우
+	// 5를 내리는 경우
         for (int i = 0; i < 9; i++) temp[i] = jare[i];
-		int b = fiveDown(temp);
+	int b = fiveDown(temp);
         
         return Math.min(a, b);
-	}
+    }
 
-	static int fiveUp(int[] jare) {
-		int answer = 0;
+    static int fiveUp(int[] jare) {
+	int answer = 0;
 
-		for (int i = length; i > 0; i--) {
+	for (int i = length; i > 0; i--) {
             double temp = (double) jare[i] / 10;
             
             // 내림일 때
@@ -50,28 +48,28 @@ class Solution {
             }
         }
         
-		// 마지막 자리수 계산
-		if (jare[0] == 10) answer += 1;
-		else {
-			double temp = (double) jare[0] / 10;
-	
-			// 내림일 때
-			if (Math.round(temp) == 0) {
-				answer += jare[0];
-			// 올림일 때
-			} else {
-				answer += 10 - jare[0];
-				answer += 1;
-			}
-		}
+	// 마지막 자리수 계산
+	if (jare[0] == 10) answer += 1;
+	else {
+	    double temp = (double) jare[0] / 10;
 
-		return answer;
+	    // 내림일 때
+	    if (Math.round(temp) == 0) {
+	        answer += jare[0];
+	    // 올림일 때
+	    } else {
+	        answer += 10 - jare[0];
+	        answer += 1;
+	    }
 	}
 
-	static int fiveDown(int[] jare) {
-		int answer = 0;
+	return answer;
+    }
 
-		for (int i = length; i > 0; i--) {
+    static int fiveDown(int[] jare) {
+	int answer = 0;
+
+	for (int i = length; i > 0; i--) {
             double temp = (double) jare[i] / 10;
             
             // 내림일 때
@@ -86,25 +84,25 @@ class Solution {
             }
         }
         
-		// 마지막 자리수 계산
-		if (jare[0] == 10) answer += 1;
-		else {
-			double temp = (double) jare[0] / 10;
-	
-			// 내림일 때
-			if (Math.round(temp) == 0 || temp == 0.5) {
-				answer += jare[0];
-			// 올림일 때
-			} else {
-				answer += 10 - jare[0];
-				answer += 1;
-			}
-		}
+	// 마지막 자리수 계산
+	if (jare[0] == 10) answer += 1;
+	else {
+	    double temp = (double) jare[0] / 10;
 
-		return answer;
+	    // 내림일 때
+	    if (Math.round(temp) == 0 || temp == 0.5) {
+	        answer += jare[0];
+	    // 올림일 때
+	    } else {
+	        answer += 10 - jare[0];
+	        answer += 1;
+	    }
 	}
 
-	static int[] jungre(int idx, int[] jare) {
+	return answer;
+    }
+
+    static int[] jungre(int idx, int[] jare) {
         jare[idx] += 1;
         for (int i = idx; i > 0; i--) {
             if (jare[i] == 10) {
@@ -113,6 +111,6 @@ class Solution {
             }
         }
 
-		return jare;
+	return jare;
     }
 }
