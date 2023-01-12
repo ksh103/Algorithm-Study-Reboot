@@ -50,6 +50,7 @@ class Solution {
             }
         }
         
+		// 마지막 자리수 계산
 		if (jare[0] == 10) answer += 1;
 		else {
 			double temp = (double) jare[0] / 10;
@@ -85,6 +86,7 @@ class Solution {
             }
         }
         
+		// 마지막 자리수 계산
 		if (jare[0] == 10) answer += 1;
 		else {
 			double temp = (double) jare[0] / 10;
