@@ -1,0 +1,67 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int N = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
+		int K = Integer.parseInt(st.nextToken());
+		int X = Integer.parseInt(st.nextToken());
+
+		// 인접리스트 구성
+		ArrayList<Integer>[] list = new ArrayList[N + 1];
+		for (int i = 1; i <= N; i++) list[i] = new ArrayList<>();
+
+		// 단방향으로 입력 받기
+		for (int i = 0; i < M; i++) {
+			st = new StringTokenizer(br.readLine());
+			int A = Integer.parseInt(st.nextToken());
+			int B = Integer.parseInt(st.nextToken());
+
+			list[A].add(B);
+		}
+
+		// 다익스트라 -> X를 기준
+		int[] dijk = new int[N + 1];
+		Arrays.fill(dijk, Integer.MAX_VALUE);
+		dijk[X] = 0;
+
+		Queue<Node> q = new LinkedList<>();
+		q.offer(new Node(X, 0));
+		while (!q.isEmpty()) {
+			Node node = q.poll();
+
+			// 갈 수 있는 곳으로 이동
+			for (int i = 0; i < list[node.cur].size(); i++) {
+				int next = list[node.cur].get(i);
+
+				// 더 짧은 거리로 가능하다면
+				if (dijk[next] > node.dist + 1) {
+					dijk[next] = node.dist + 1;
+					q.offer(new Node(next, dijk[next]));
+				}
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+		for (int i = 1; i <= N; i++) {
+			if (dijk[i] == K) sb.append(i + "\n");
+		}
+
+		if (sb.length() == 0) System.out.println("-1");
+		else System.out.println(sb);
+	}
+
+	static class Node {
+		int cur;
+		int dist;
+
+		Node (int cur, int dist) {
+			this.cur = cur;
+			this.dist = dist;
+		}
+	}
+}
