@@ -13,6 +13,7 @@ public class Main {
 		for (int i = 0; i < N; i++) {
 			String word = makeWord(br.readLine());
 			
+			// 사전맵에 넣어주기
 			if (dictMap.containsKey(word)) {
 				dictMap.put(word, dictMap.get(word) + 1);
 			} else dictMap.put(word, 1);
@@ -21,6 +22,7 @@ public class Main {
 		StringBuilder sb = new StringBuilder();
 		int M = Integer.parseInt(br.readLine());
 		for (int i = 0; i < M; i++) {
+			// 문장에서 단어 분리
 			String[] words = br.readLine().split(" ");
 
 			int cnt = 0;
@@ -52,9 +54,6 @@ public class Main {
 		// 정렬시키기
 		temp = Stream.of(temp.split("")).sorted().collect(Collectors.joining());
 
-		// 합치고 사전맵에 넣기
-		word = first + last + temp;
-
-		return word;
+		return first + last + temp;
 	}
 }
